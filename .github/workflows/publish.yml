@@ -1,0 +1,26 @@
+name: Publish Dev Focus Tracker
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publish extension
+        run: |
+          npm install --global @vscode/vsce
+          vsce publish --no-dependencies --oidc

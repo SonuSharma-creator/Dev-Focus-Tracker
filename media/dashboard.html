@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="${styleUri}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div>
+                <h1>💻 Dev Focus Tracker</h1>
+                <div class="subtitle">Track your focus. Grow every day.</div>
+            </div>
+
+            <button class="menu-button" type="button" title="More options" aria-label="More options">⋮</button>
+        </div>
+
+        <div class="menu-dropdown" id="menuDropdown" hidden>
+            <!-- Focus options -->
+            <div id="focusOptions">
+                <button type="button" class="menu-item" id="startFocus">
+                    ▶ Start Focus
+                </button>
+
+                <button type="button" class="menu-item" id="pauseResumeFocus">
+                    ⏸ Pause / Resume Focus
+                </button>
+
+                <button type="button" class="menu-item" id="stopFocus">
+                    ⏹ Stop Focus
+                </button>
+            </div>
+
+            <!-- Break options -->
+            <div id="breakOptions" hidden>
+                <button type="button" class="menu-item" id="stopBreak">
+                    ⏹ Stop Break
+                </button>
+            </div>
+
+            <div class="menu-divider"></div>
+
+            <button type="button" class="menu-item" id="openSettings">
+                ⚙️ Settings
+            </button>
+        </div>
+
+        <div class="header-accent"></div>
+    </div>
+
+    <div class="card">
+        <div class="label">TODAY'S FOCUS TIME</div>
+        <div class="value" id="focusTime">0h 0m</div>
+    </div>
+
+    <div class="card">
+        <div class="label">COMPLETED SESSIONS</div>
+        <div class="value" id="completedSessions">0</div>
+        <div class="unit">Focus sessions completed today</div>
+        <div class="progress-track">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="progress-label">
+            <span id="progressType">Focus progress</span>
+            <span id="progressPercent">0%</span>
+        </div>
+        
+    </div>
+
+    <div class="card weekly-card">
+        <div class="weekly-heading">
+            <div class="weekly-icon">📊</div>
+            <div>
+                <div class="weekly-title">Last 7 Days</div>
+                <div class="weekly-subtitle">Your focus activity this week</div>
+            </div>
+        </div>
+
+        <div class="weekly-chart" id="weeklyChart">
+            <div class="chart-layout">
+                <div class="chart-y-labels">
+                    <span id="chartYMax">0m</span>
+                    <span id="chartYMid">0m</span>
+                    <span>0m</span>
+                </div>
+
+                <div class="chart-main">
+                    <div class="chart-plot"></div>
+                    <div class="chart-x-labels"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <div class="Achievement">🏆</div>
+        <strong>Small steps, big growth.</strong>
+        <br>
+        Stay consistent. Keep growing.
+    </div>
+
+    <script src="${scriptUri}"></script>
+</body>
+
+</html>

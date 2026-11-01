@@ -1,0 +1,112 @@
+{
+  "name": "dev-focus-tracker",
+  "publisher": "devfocus",
+  "displayName": "Dev Focus Tracker",
+  "description": "A productivity tracker for VS Code with a focus timer, Pomodoro sessions, daily goals, and productivity statistics.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+        {
+            "command": "dev-focus-tracker.startTimer",
+            "title": "Focus: Start",
+            "when": "!devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.pauseTimer",
+            "title": "Focus: Pause",
+            "when": "!devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.resumeTimer",
+            "title": "Focus: Resume",
+            "when": "!devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.stopTimer",
+            "title": "Focus: Stop",
+            "when": "!devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.breakPause",
+            "title": "Break: Pause",
+            "when": "devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.breakStop",
+            "title": "Break: Stop",
+            "when": "devFocusTracker.isBreak"
+        },
+        {
+            "command": "dev-focus-tracker.showDailyStats",
+            "title": "Show Daily Stats"
+        },
+        {
+            "command": "dev-focus-tracker.openSettings",
+            "title": "Dev Focus Tracker: Open Settings"
+        }
+    ],
+    "viewsContainers": {
+        "activitybar": [
+            {
+                "id": "devFocusTracker",
+                "title": "Dev Focus Tracker",
+                "icon": "media/focus.svg"
+            }
+        ]
+    },
+    "views": {
+      "devFocusTracker": [
+          {
+              "type": "webview",
+              "id": "devFocusTracker.dailyStats",
+              "name": "Daily Stats",
+              "icon": "media/focus.svg"
+          }
+      ]
+  },
+    "configuration": {
+        "title": "Dev Focus Tracker",
+        "properties": {
+            "dev-focus-tracker.focusDuration": {
+                "type": "number",
+                "default": 30,
+                "minimum": 1,
+                "maximum": 180,
+                "description": "Focus session duration in minutes."
+            },
+            "dev-focus-tracker.breakDuration": {
+                "type": "number",
+                "default": 5,
+                "minimum": 1,
+                "maximum": 60,
+                "description": "Break session duration in minutes."
+            }
+        }
+    }
+},
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.140.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "eslint": "^10.5.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}

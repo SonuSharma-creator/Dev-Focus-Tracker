@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--vscode-font-family);
+    color: var(--vscode-foreground);
+    background: var(--vscode-sideBar-background);
+    padding: 18px;
+    margin: 0;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.header h1 {
+    font-size: 22px;
+    margin: 0 0 6px;
+}
+
+.subtitle {
+    color: var(--vscode-descriptionForeground);
+    font-size: 12px;
+}
+
+.menu-button {
+    border: none;
+    background: transparent;
+    color: var(--vscode-foreground);
+    font-size: 23px;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background: var(--vscode-toolbar-hoverBackground);
+}
+
+.menu-dropdown {
+    position: absolute;
+    right: 18px;
+    top: 58px;
+    min-width: 140px;
+    padding: 5px;
+    background: var(--vscode-menu-background);
+    border: 1px solid var(--vscode-menu-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--vscode-menu-foreground);
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+}
+
+.menu-item:hover {
+    background: var(--vscode-menu-selectionBackground);
+    color: var(--vscode-menu-selectionForeground);
+}
+
+.header-accent {
+    position: absolute;
+    bottom: -1px;
+    left: 18px;
+    width: 42px;
+    height: 3px;
+    background: #2eace6;
+    border-radius: 4px;
+}
+
+.card {
+    background: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.label {
+    color: var(--vscode-descriptionForeground);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.value {
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #60A5FA, #1D4ED8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.unit {
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.progress-track {
+    height: 8px;
+    background: var(--vscode-input-background);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 14px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #FDE047, #F97316, #b33030);
+    border-radius: 10px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-top: 8px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.motivation {
+    text-align: center;
+    line-height: 1.6;
+    color: var(--vscode-descriptionForeground);
+    font-size: 12px;
+    margin-top: 22px;
+}
+
+.Achievement {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* Weekly Focus Chart */
+.weekly-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.weekly-icon {
+    font-size: 22px;
+}
+
+.weekly-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vscode-foreground);
+}
+
+.weekly-subtitle {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 4px;
+}
+
+.weekly-chart {
+    width: 100%;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.chart-layout {
+    display: flex;
+    gap: 10px;
+}
+
+.chart-y-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
+    padding-bottom: 22px;
+    font-size: 10px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.chart-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.chart-plot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 6px;
+    height: 130px;
+    border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.chart-column {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.chart-value {
+    font-size: 9px;
+    color: var(--vscode-descriptionForeground);
+    white-space: nowrap;
+}
+
+.chart-bar-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.chart-bar {
+    width: 65%;
+    min-height: 2px;
+    background: linear-gradient(90deg, #60A5FA, #1D4ED8);
+    border-radius: 5px 5px 0 0;
+    transition: height 0.3s ease;
+}
+
+.chart-x-labels {
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.chart-day {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.chart-day small {
+    font-size: 9px;
+}

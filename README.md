@@ -1,65 +1,57 @@
-# dev-focus-tracker README
+# Dev Focus Tracker
 
-This is the README for your extension "dev-focus-tracker". After writing up a brief description, we recommend including the following sections.
+**Stay focused. Track your coding time. Build better productivity habits.**
+
+Dev Focus Tracker is a productivity extension for Visual Studio Code that helps developers manage focus sessions, take breaks, track daily progress, and understand their productivity.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Focus Timer:** Start a dedicated focus session while coding.
+- **Break Timer:** Take breaks between focus sessions.
+- **Pause, Resume, and Stop:** Control your focus sessions whenever needed.
+- **Daily Statistics:** Track your daily focus time and completed sessions.
+- **Weekly Productivity Chart:** Review your focus activity over the last seven days.
+- **Progress Tracking:** Monitor your productivity directly inside VS Code.
+- **Sidebar Dashboard:** View your focus information without leaving your editor.
+- **Persistent Statistics:** Your saved productivity data remains available when you restart VS Code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Getting Started
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Install Dev Focus Tracker in Visual Studio Code.
+2. Open the Command Palette using `Ctrl+Shift+P` on Windows or Linux, or `Cmd+Shift+P` on macOS.
+3. Search for a Dev Focus Tracker command.
+4. Start a focus session and begin coding.
+5. Open the Dev Focus Tracker sidebar to view your dashboard and productivity statistics.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
+
+Use the extension's available commands and sidebar dashboard to manage your focus sessions and review your productivity.
+
+You can start a focus session, pause or resume it, stop it when finished, and use the break timer when you need time away from your work.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code version `1.140.0` or compatible with the version specified by the extension.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+The extension's configurable settings are available through Visual Studio Code settings. Available options depend on the configuration declared by the installed extension.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+If you encounter a problem, please report it through the GitHub repository's Issues section.
+
+## Contributing and Feedback
+
+Bug reports and feature suggestions are welcome through the GitHub Issues section.
+
+Repository: https://github.com/SonuSharma-creator/Dev-Focus-Tracker
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Initial release of Dev Focus Tracker.
+- Added focus and break timers.
+- Added daily productivity statistics and a weekly chart.
+- Added a sidebar dashboard for tracking focus activity.

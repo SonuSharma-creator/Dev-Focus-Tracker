@@ -1,6 +1,6 @@
 {
   "name": "dev-focus-tracker",
-  "publisher": "devfocus",
+  "publisher": "bytemate",
   "displayName": "Dev Focus Tracker",
   "description": "A productivity tracker for VS Code with a focus timer, Pomodoro sessions, daily goals, and productivity statistics.",
   "version": "0.0.1",

@@ -3,6 +3,10 @@
   "publisher": "bytemate",
   "displayName": "Dev Focus Tracker",
   "description": "A productivity tracker for VS Code with a focus timer, Pomodoro sessions, daily goals, and productivity statistics.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SonuSharma-creator/Dev-Focus-Tracker.git"
+    },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.140.0"

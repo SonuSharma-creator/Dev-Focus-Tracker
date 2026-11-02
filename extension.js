@@ -125,7 +125,10 @@ resolveWebviewView(webviewView) {
                     Math.max(
                         0,
                         Math.round(
-                            ((getFocusDuration() - remainingSeconds) / getFocusDuration()) * 100
+                            ((isBreak ? getBreakDuration() : getFocusDuration()) -
+                                remainingSeconds) /
+                                (isBreak ? getBreakDuration() : getFocusDuration()) *
+                                100
                         )
                     )
                 ),
@@ -695,9 +698,23 @@ function activate(context) {
         )
     );
 
+    context.subscriptions.push(
+        vscode.commands.registerCommand(
+            'dev-focus-tracker.openSettings',
+            () => {
+                vscode.commands.executeCommand(
+                    'workbench.action.openSettings',
+                    'dev-focus-tracker'
+                );
+            }
+        )
+    );
+
     vscode.window.showInformationMessage(
         'Dev Focus Tracker is ready!'
     );
+
+    return module.exports;
 }
 
 function deactivate() {
@@ -706,7 +723,14 @@ function deactivate() {
     }
 }
 
+
 module.exports = {
     activate,
-    deactivate
+    deactivate,
+    getTimerState: () => ({
+        isRunning,
+        isBreak,
+        remainingSeconds,
+        focusSessionStarted
+    })
 };

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src ${cspSource}; script-src 'nonce-${nonce}';">
     <link rel="stylesheet" href="${styleUri}">
 </head>
 
@@ -67,7 +69,7 @@
             <span id="progressType">Focus progress</span>
             <span id="progressPercent">0%</span>
         </div>
-        
+
     </div>
 
     <div class="card weekly-card">
@@ -102,7 +104,7 @@
         Stay consistent. Keep growing.
     </div>
 
-    <script src="${scriptUri}"></script>
+    <script nonce="${nonce}" src="${scriptUri}"></script>
 </body>
 
 </html>

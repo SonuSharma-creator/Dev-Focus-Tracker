@@ -6,97 +6,135 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SonuSharma-creator/Dev-Focus-Tracker.git"
-    },
+  },
   "icon": "media/icon.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.140.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "contributes": {
     "commands": [
-        {
-            "command": "dev-focus-tracker.startTimer",
-            "title": "Focus: Start",
-            "when": "!devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.pauseTimer",
-            "title": "Focus: Pause",
-            "when": "!devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.resumeTimer",
-            "title": "Focus: Resume",
-            "when": "!devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.stopTimer",
-            "title": "Focus: Stop",
-            "when": "!devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.breakPause",
-            "title": "Break: Pause",
-            "when": "devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.breakStop",
-            "title": "Break: Stop",
-            "when": "devFocusTracker.isBreak"
-        },
-        {
-            "command": "dev-focus-tracker.showDailyStats",
-            "title": "Show Daily Stats"
-        },
-        {
-            "command": "dev-focus-tracker.openSettings",
-            "title": "Dev Focus Tracker: Open Settings"
-        }
+      {
+        "command": "dev-focus-tracker.startTimer",
+        "title": "Start Focus",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.pauseTimer",
+        "title": "Pause Focus",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.resumeTimer",
+        "title": "Resume Focus",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.stopTimer",
+        "title": "Stop Focus",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.breakPause",
+        "title": "Pause Break",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.breakStop",
+        "title": "Stop Break",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.showDailyStats",
+        "title": "Show Daily Stats",
+        "category": "Dev Focus Tracker"
+      },
+      {
+        "command": "dev-focus-tracker.openSettings",
+        "title": "Open Settings",
+        "category": "Dev Focus Tracker"
+      }
     ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "dev-focus-tracker.startTimer",
+          "when": "!devFocusTracker.isBreak && !devFocusTracker.isRunning && !devFocusTracker.isPaused"
+        },
+        {
+          "command": "dev-focus-tracker.pauseTimer",
+          "when": "devFocusTracker.isRunning && !devFocusTracker.isBreak"
+        },
+        {
+          "command": "dev-focus-tracker.resumeTimer",
+          "when": "devFocusTracker.isPaused"
+        },
+        {
+          "command": "dev-focus-tracker.stopTimer",
+          "when": "!devFocusTracker.isBreak && (devFocusTracker.isRunning || devFocusTracker.isPaused)"
+        },
+        {
+          "command": "dev-focus-tracker.breakPause",
+          "when": "devFocusTracker.isBreak"
+        },
+        {
+          "command": "dev-focus-tracker.breakStop",
+          "when": "devFocusTracker.isBreak"
+        }
+      ]
+    },
     "viewsContainers": {
-        "activitybar": [
-            {
-                "id": "devFocusTracker",
-                "title": "Dev Focus Tracker",
-                "icon": "media/focus.svg"
-            }
-        ]
+      "activitybar": [
+        {
+          "id": "devFocusTracker",
+          "title": "Dev Focus Tracker",
+          "icon": "media/focus.svg"
+        }
+      ]
     },
     "views": {
       "devFocusTracker": [
-          {
-              "type": "webview",
-              "id": "devFocusTracker.dailyStats",
-              "name": "Daily Stats",
-              "icon": "media/focus.svg"
-          }
-      ]
-  },
-    "configuration": {
-        "title": "Dev Focus Tracker",
-        "properties": {
-            "dev-focus-tracker.focusDuration": {
-                "type": "number",
-                "default": 30,
-                "minimum": 1,
-                "maximum": 180,
-                "description": "Focus session duration in minutes."
-            },
-            "dev-focus-tracker.breakDuration": {
-                "type": "number",
-                "default": 5,
-                "minimum": 1,
-                "maximum": 60,
-                "description": "Break session duration in minutes."
-            }
+        {
+          "type": "webview",
+          "id": "devFocusTracker.dailyStats",
+          "name": "Daily Stats",
+          "icon": "media/focus.svg"
         }
+      ]
+    },
+    "configuration": {
+      "title": "Dev Focus Tracker",
+      "properties": {
+        "dev-focus-tracker.focusDuration": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "maximum": 180,
+          "description": "Focus session duration in minutes."
+        },
+        "dev-focus-tracker.breakDuration": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 60,
+          "description": "Break session duration in minutes."
+        }
+      }
     }
-},
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",

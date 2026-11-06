@@ -17,7 +17,7 @@ class DailyStatsProvider {
     /**
      * @param {vscode.WebviewView} webviewView
      */
-    resolveWebviewView(webviewView) {
+    async resolveWebviewView(webviewView) {
         this._view = webviewView;
 
         webviewView.webview.options = {
@@ -68,22 +68,20 @@ class DailyStatsProvider {
             }
         });
 
-        webviewView.webview.html = this.getHtml(webviewView.webview);
-        this.refresh();
-    }
+        webviewView.onDidDispose(() => {
+            if (this._view === webviewView) {
+                this._view = undefined;
+            }
+        });
 
-    hideMenu() {
-        if (this._view) {
-            this._view.webview.postMessage({
-                command: 'closeMenu'
-            });
-        }
+        webviewView.webview.html = await this.getHtml(webviewView.webview);
+        this.refresh();
     }
 
     /**
      * @param {vscode.Webview} webview
      */
-    getHtml(webview) {
+    async getHtml(webview) {
         const htmlUri = vscode.Uri.joinPath(
             this._extensionUri,
             'media',
@@ -106,17 +104,21 @@ class DailyStatsProvider {
             )
         );
 
-        const fs = require('fs');
-        let html = fs.readFileSync(htmlUri.fsPath, 'utf8');
+        const bytes = await vscode.workspace.fs.readFile(htmlUri);
+        let html = new TextDecoder('utf-8').decode(bytes);
 
-        html = html.replace('${styleUri}', cssUri.toString());
-        html = html.replace('${scriptUri}', scriptUri.toString());
+        const nonce = require('crypto').randomBytes(16).toString('base64');
+
+        html = html.replaceAll('${styleUri}', cssUri.toString());
+        html = html.replaceAll('${scriptUri}', scriptUri.toString());
+        html = html.replaceAll('${cspSource}', webview.cspSource);
+        html = html.replaceAll('${nonce}', nonce);
 
         return html;
     }
 
     refresh() {
-        if (this._view) {
+        if (this._view && this._view.visible) {
             this._view.webview.postMessage({
                 command: 'updateStats',
                 weeklyHistory: getLast7DaysHistory(),

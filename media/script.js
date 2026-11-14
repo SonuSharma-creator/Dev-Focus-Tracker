@@ -1,3 +1,4 @@
+
 const vscodeApi = acquireVsCodeApi();
 
 const menuButton = document.querySelector('.menu-button');
@@ -80,7 +81,7 @@ let lastChartKey = '';
 
 function renderChart(weeklyHistory) {
     const key = weeklyHistory
-        .map(day => day.date + ':' + Math.floor(day.focusedSeconds / 60))
+        .map(day => day.date + ':' + Math.floor(day.focusedSeconds / 60) + ':' + (day.completedSessions || 0))
         .join('|');
 
     if (key === lastChartKey) {
@@ -135,6 +136,12 @@ function renderChart(weeklyHistory) {
         const bar = document.createElement('div');
         bar.className = 'chart-bar';
         bar.style.height = height + '%';
+
+        // Show completed focus-session count on hover
+        const sessionCount = day.completedSessions || 0;
+        const sessionLabel = sessionCount === 1 ? 'session' : 'sessions';
+
+        barWrap.title = `${day.day}, ${day.date}: ${sessionCount} completed ${sessionLabel}`;
 
         barWrap.appendChild(bar);
         column.appendChild(value);

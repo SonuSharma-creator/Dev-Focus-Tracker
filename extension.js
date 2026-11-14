@@ -1,3 +1,4 @@
+
 // @ts-check
 const vscode = require('vscode');
 
@@ -151,9 +152,9 @@ let timerInterval;
 /** @type {TimerState} */
 let state = 'idle';
 
-let remainingSeconds = 0;     // jab timer chal nahi raha
-let sessionTotalSeconds = 0;  // current session ki total length
-let endTime = 0;              // running session kab khatam hoga (timestamp)
+let remainingSeconds = 0;
+let sessionTotalSeconds = 0;
+let endTime = 0;
 let lastTickTime = 0;
 
 const isRunning = () => state === 'focusing' || state === 'breaking';
@@ -165,6 +166,9 @@ let completedFocusSessions = 0;
 
 /** @type {Record<string, number>} */
 let weeklyFocusHistory = {};
+
+/** @type {Record<string, number>} */
+let weeklyCompletedSessions = {};
 
 /** @type {vscode.ExtensionContext | undefined} */
 let extensionContext;
@@ -214,7 +218,10 @@ function getLast7DaysHistory() {
             day: date.toLocaleDateString('en-US', { weekday: 'short' }),
             focusedSeconds: dateKey === today
                 ? dailyFocusSeconds
-                : (weeklyFocusHistory[dateKey] || 0)
+                : (weeklyFocusHistory[dateKey] || 0),
+            completedSessions: dateKey === today
+                ? completedFocusSessions
+                : (weeklyCompletedSessions[dateKey] || 0)
         });
     }
 
@@ -225,9 +232,17 @@ function getLast7DaysHistory() {
         }
     }
 
+    // Remove completed-session data older than the last 7 calendar days
+    for (const dateKey of Object.keys(weeklyCompletedSessions)) {
+        if (!validDates.has(dateKey)) {
+            delete weeklyCompletedSessions[dateKey];
+        }
+    }
+
     // Save the cleaned history to extension storage
     if (extensionContext) {
         extensionContext.globalState.update('weeklyFocusHistory', weeklyFocusHistory);
+        extensionContext.globalState.update('weeklyCompletedSessions', weeklyCompletedSessions);
     }
 
     return days;
@@ -357,9 +372,12 @@ function tick() {
                 weeklyFocusHistory[today] = 0;
             }
 
+            weeklyCompletedSessions[today] = 0;
+
             extensionContext.globalState.update('dailyFocusSeconds', 0);
             extensionContext.globalState.update('completedFocusSessions', 0);
             extensionContext.globalState.update('weeklyFocusHistory', weeklyFocusHistory);
+            extensionContext.globalState.update('weeklyCompletedSessions', weeklyCompletedSessions);
             extensionContext.globalState.update('statsDate', today);
 
             resetToIdle();
@@ -407,9 +425,16 @@ function onSessionComplete() {
         completedFocusSessions++;
 
         if (extensionContext) {
+            const today = todayKey();
+            weeklyCompletedSessions[today] = (weeklyCompletedSessions[today] || 0) + 1;
+
             extensionContext.globalState.update(
                 'completedFocusSessions',
                 completedFocusSessions
+            );
+            extensionContext.globalState.update(
+                'weeklyCompletedSessions',
+                weeklyCompletedSessions
             );
         }
 
@@ -515,6 +540,7 @@ function stopTimer() {
 function activate(context) {
     extensionContext = context;
     weeklyFocusHistory = context.globalState.get('weeklyFocusHistory', {});
+    weeklyCompletedSessions = context.globalState.get('weeklyCompletedSessions', {});
 
     // Clean old weekly history as soon as the extension starts
     getLast7DaysHistory();
@@ -526,12 +552,14 @@ function activate(context) {
         dailyFocusSeconds = 0;
         completedFocusSessions = 0;
 
-        // Reset today's chart value when starting a new day
+        // Reset today's chart values when starting a new day
         weeklyFocusHistory[today] = 0;
+        weeklyCompletedSessions[today] = 0;
 
         context.globalState.update('dailyFocusSeconds', 0);
         context.globalState.update('completedFocusSessions', 0);
         context.globalState.update('weeklyFocusHistory', weeklyFocusHistory);
+        context.globalState.update('weeklyCompletedSessions', weeklyCompletedSessions);
         context.globalState.update('statsDate', today);
     } else {
         dailyFocusSeconds = context.globalState.get('dailyFocusSeconds', 0);

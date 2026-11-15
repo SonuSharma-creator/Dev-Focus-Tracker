@@ -1,57 +1,256 @@
 # Dev Focus Tracker
 
-**Stay focused. Track your coding time. Build better productivity habits.**
+\<p align="center">
+&#x20; \<!-- EXTENSION LOGO -->
+&#x20; \<img src="media/icon.png" alt="Dev Focus Tracker Logo" width="160"/>
+\</p>
 
-Dev Focus Tracker is a productivity extension for Visual Studio Code that helps developers manage focus sessions, take breaks, track daily progress, and understand their productivity.
+\<h1 align="center">Dev Focus Tracker\</h1>
 
-## Features
+\<h3 align="center">Focus Better. Code Smarter.\</h3>
 
-- **Focus Timer:** Start a dedicated focus session while coding.
-- **Break Timer:** Take breaks between focus sessions.
-- **Pause, Resume, and Stop:** Control your focus sessions whenever needed.
-- **Daily Statistics:** Track your daily focus time and completed sessions.
-- **Weekly Productivity Chart:** Review your focus activity over the last seven days.
-- **Progress Tracking:** Monitor your productivity directly inside VS Code.
-- **Sidebar Dashboard:** View your focus information without leaving your editor.
-- **Persistent Statistics:** Your saved productivity data remains available when you restart VS Code.
+\<p align="center">
+&#x20; Your productivity companion, built right into Visual Studio Code.
+\</p>
 
-## Getting Started
+\<p align="center">
+&#x20; \<a href="[https://marketplace.visualstudio.com/items?itemName=bytemate.dev-focus-tracker](https://marketplace.visualstudio.com/items?itemName=bytemate.dev-focus-tracker)">
+&#x20;   \<strong>Install from Visual Studio Marketplace\</strong>
+&#x20; \</a>
+\</p>
 
-1. Install Dev Focus Tracker in Visual Studio Code.
-2. Open the Command Palette using `Ctrl+Shift+P` on Windows or Linux, or `Cmd+Shift+P` on macOS.
-3. Search for a Dev Focus Tracker command.
-4. Start a focus session and begin coding.
-5. Open the Dev Focus Tracker sidebar to view your dashboard and productivity statistics.
+---
 
-## Usage
+## 🚀 Your Coding Time. Better Managed.
 
-Use the extension's available commands and sidebar dashboard to manage your focus sessions and review your productivity.
+Dev Focus Tracker helps developers build consistent work habits with focused work sessions, scheduled breaks, and clear productivity insights — without leaving their coding environment.
 
-You can start a focus session, pause or resume it, stop it when finished, and use the break timer when you need time away from your work.
+Whether you're learning to code, working on a personal project, or building software professionally, Dev Focus Tracker helps you make every coding session count.
 
-## Requirements
+---
 
-- Visual Studio Code version `1.140.0` or compatible with the version specified by the extension.
+## ✨ Why Dev Focus Tracker?
 
-## Extension Settings
+Staying productive isn't just about writing more code. It's about managing your time, maintaining focus, and taking breaks when needed.
 
-The extension's configurable settings are available through Visual Studio Code settings. Available options depend on the configuration declared by the installed extension.
+Dev Focus Tracker brings your focus routine and productivity tracking directly into VS Code.
 
-## Known Issues
+### Everything You Need to Stay Focused
 
-If you encounter a problem, please report it through the GitHub repository's Issues section.
+| Feature                          | Description                                                     |
+| -------------------------------- | --------------------------------------------------------------- |
+| 🎯 **Focus Timer**               | Start dedicated work sessions and concentrate on your tasks.    |
+| ☕ **Break Timer**                | Take breaks after completing focus sessions.                    |
+| ⏯️ **Pause & Resume**            | Pause your current session and continue whenever you're ready.  |
+| ⏹️ **Stop Session**              | End an active focus or break session at any time.               |
+| ⚙️ **Customizable Durations**    | Configure focus and break durations to match your workflow.     |
+| 📊 **Daily Productivity Stats**  | Track your total focus time and completed focus sessions.       |
+| 📈 **Weekly Productivity Chart** | Review your focus activity over the last seven days.            |
+| 🔄 **Visual Progress Bar**       | See how much of your current session is complete.               |
+| 💾 **Persistent Statistics**     | Your productivity data remains available when VS Code restarts. |
 
-## Contributing and Feedback
+---
 
-Bug reports and feature suggestions are welcome through the GitHub Issues section.
+## 🖥️ See It in Action
 
-Repository: https://github.com/SonuSharma-creator/Dev-Focus-Tracker
+Get a closer look at how Dev Focus Tracker fits into your development workflow.
 
-## Release Notes
+### Your Productivity Dashboard
 
-### 0.0.1
+\<!-- DASHBOARD SCREENSHOT -->
 
-- Initial release of Dev Focus Tracker.
-- Added focus and break timers.
-- Added daily productivity statistics and a weekly chart.
-- Added a sidebar dashboard for tracking focus activity.
+\<p align="center">
+&#x20; \<img src="media/screenshots/dashboard.png" alt="Dev Focus Tracker Dashboard" width="850"/>
+\</p>
+
+### Stay Focused with the Focus Timer
+
+\<!-- FOCUS TIMER SCREENSHOT -->
+
+\<p align="center">
+&#x20; \<img src="media/screenshots/focus-timer.png" alt="Dev Focus Tracker Focus Timer" width="850"/>
+\</p>
+
+### Track Your Productivity
+
+\<!-- PRODUCTIVITY STATISTICS SCREENSHOT -->
+
+\<p align="center">
+&#x20; \<img src="media/screenshots/productivity-stats.png" alt="Dev Focus Tracker Productivity Statistics" width="850"/>
+\</p>
+
+### Watch Dev Focus Tracker in Action
+
+\<!-- DEMO GIF -->
+
+\<p align="center">
+&#x20; \<img src="media/screenshots/demo.gif" alt="Dev Focus Tracker Demo" width="850"/>
+\</p>
+
+---
+
+## 📥 Installation
+
+### Install from Visual Studio Marketplace
+
+1. Open Visual Studio Code.
+2. Open the Extensions view using `Ctrl + Shift + X`.
+3. Search for **Dev Focus Tracker**.
+4. Select the extension published by **ByteMate**.
+5. Click **Install**.
+
+\<p align="center">
+&#x20; \<a href="[https://marketplace.visualstudio.com/items?itemName=bytemate.dev-focus-tracker](https://marketplace.visualstudio.com/items?itemName=bytemate.dev-focus-tracker)">
+&#x20;   \<strong>Get Dev Focus Tracker on Visual Studio Marketplace →\</strong>
+&#x20; \</a>
+\</p>
+
+---
+
+## 📖 How to Use
+
+Get started with Dev Focus Tracker in just a few simple steps.
+
+### 1. Open Dev Focus Tracker
+
+- Open Visual Studio Code.
+- Find the Dev Focus Tracker icon in the Activity Bar.
+- Click the icon to open the extension dashboard.
+
+\<!-- ACTIVITY BAR / DASHBOARD SCREENSHOT -->
+
+\<p align="center">
+
+&#x20; \<img src="media/screenshots/dashboard.png"
+
+&#x20;      alt="Dev Focus Tracker Dashboard"
+
+&#x20;      width="850"/>
+
+\</p>
+
+### 2. Configure Your Session Duration
+
+- Open VS Code Settings.
+- Search for **Dev Focus Tracker**.
+- Choose your preferred focus duration.
+- Set your preferred break duration.
+
+Customize the durations according to your working style.
+
+### 3. Start a Focus Session
+
+- Open the Dev Focus Tracker dashboard.
+- Start your focus session.
+- The countdown timer will begin.
+- Work on your coding tasks while the session is active.
+- Follow the visual progress bar to track your session.
+
+\<!-- ACTIVE FOCUS SESSION CLOCK SCREENSHOT -->
+
+\<p align="center">
+
+&#x20; \<img src="media/screenshots/focus-session.png"
+
+&#x20;      alt="Dev Focus Tracker Active Focus Session"
+
+&#x20;      width="850"/>
+
+\</p>
+
+### 4. Manage Your Timer
+
+While a session is active, use the available controls:
+
+- **Pause:** Temporarily pause the active timer.
+- **Resume:** Continue a paused session.
+- **Stop:** End the current session.
+
+### 5. Take a Break
+
+- When your focus session completes, the break session starts.
+- The break timer tracks your remaining break time.
+- Use this time to step away from your screen and recharge.
+- Once the break is complete, you're ready for another focus session.
+
+### 6. Review Your Productivity
+
+Open the dashboard to review your productivity statistics:
+
+- Total focus time for today.
+- Completed focus sessions.
+- Weekly focus activity.
+- Current session progress.
+
+Use these insights to understand your work habits and build a more consistent routine.
+
+---
+
+## ⚙️ Settings & Customization
+
+Dev Focus Tracker lets you customize your focus and break durations.
+
+To configure your preferences:
+
+1. Open Visual Studio Code Settings using `Ctrl + ,`.
+2. Search for **Dev Focus Tracker**.
+3. Locate the available focus and break duration settings.
+4. Choose the durations that work best for you.
+
+Your workflow should fit your needs. Start with manageable sessions and adjust them as you build consistency.
+
+---
+
+## 📊 Build Better Work Habits
+
+Dev Focus Tracker is designed to help you:
+
+- Stay consistent with focused work sessions.
+- Take regular breaks.
+- Understand how much time you spend focusing.
+- Monitor your productivity over time.
+- Build a healthier and more structured coding routine.
+
+Small, consistent improvements can make a meaningful difference.
+
+---
+
+## 🛠️ Built With
+
+- JavaScript
+- Visual Studio Code Extension API
+- HTML
+- CSS
+
+---
+
+## 🤝 Feedback & Support
+
+Have a suggestion, found a bug, or want to request a feature?
+
+Your feedback helps improve Dev Focus Tracker.
+
+- [Report an Issue](https://github.com/SonuSharma-creator/Dev-Focus-Tracker/issues)
+- [View GitHub Repository](https://github.com/SonuSharma-creator/Dev-Focus-Tracker)
+
+---
+
+## 🗺️ What's Next?
+
+Dev Focus Tracker is continuously evolving. Future improvements may include additional productivity insights, enhanced customization, and more ways to manage focus sessions.
+
+Stay tuned for future updates!
+
+---
+
+## 📄 License
+
+Please refer to the repository for licensing information.
+
+---
+
+\<p align="center">
+&#x20; \<strong>Made for developers who value their time.\</strong>
+\</p>
+
+\<h3 align="center">Dev Focus Tracker — Focus. Track. Improve.\</h3>

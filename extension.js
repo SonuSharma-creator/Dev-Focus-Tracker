@@ -125,18 +125,23 @@ class DailyStatsProvider {
                 weeklyHistory: getLast7DaysHistory(),
                 focusTime: `${Math.floor(dailyFocusSeconds / 3600)}h ${Math.floor((dailyFocusSeconds % 3600) / 60)}m`,
                 completedSessions: completedFocusSessions,
+
+                // Focus Bar: precise progress calculation
                 progress: sessionTotalSeconds > 0
                     ? Math.min(
                         100,
                         Math.max(
                             0,
-                            Math.round(
-                                (sessionTotalSeconds - remainingSeconds) /
+                            Number((
+                                (sessionTotalSeconds - (isRunning()
+                                    ? (endTime - Date.now()) / 1000
+                                    : remainingSeconds)) /
                                 sessionTotalSeconds * 100
-                            )
+                            ).toFixed(2))
                         )
                     )
                     : 0,
+
                 isBreak: isBreak(),
                 isRunning: isRunning(),
                 isPaused: isPaused()

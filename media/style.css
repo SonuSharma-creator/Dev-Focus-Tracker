@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -145,6 +146,7 @@ body {
     width: 0%;
     background: linear-gradient(90deg, #FDE047, #F97316, #b33030);
     border-radius: 10px;
+    transition: width 1s linear;
 }
 
 .progress-label {

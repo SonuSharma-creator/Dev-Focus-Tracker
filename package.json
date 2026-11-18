@@ -8,7 +8,7 @@
     "url": "https://github.com/SonuSharma-creator/Dev-Focus-Tracker.git"
   },
   "icon": "media/icon.png",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.140.0"
   },
